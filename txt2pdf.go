@@ -39,9 +39,6 @@ func main() {
     flag.StringVar(&outputFile, "output", "", "")
     flag.StringVar(&outputFile, "o", "", "")
 
-    // var font string
-    // var font_size int
-
     flag.Parse()
 
     if inputFile == "" {
@@ -49,18 +46,16 @@ func main() {
         return
     }
  
-    //read input file and add to pdf
-    file, err := os.Open(inputFile) // replace yourfile.txt with your file name
+    file, err := os.Open(inputFile) 
     if err != nil {
         fmt.Println("File reading error", err)
     }
-    defer file.Close() // Make sure to close the file when you're done
+    defer file.Close()
 
     m := maroto.New()
 
     scanner := bufio.NewScanner(file)
 
-    // Use Scan() to read the next line.
     for scanner.Scan() {
         m.AddRow(10, text.NewCol(12, scanner.Text(), props.Text{
             Size:  10,
@@ -68,7 +63,6 @@ func main() {
         }))
     }
 
-    // Check for errors during Scan. End of file is expected and not reported by Scan as an error.
     if err := scanner.Err(); err != nil {
         fmt.Println("Error reading file", err)
     }
