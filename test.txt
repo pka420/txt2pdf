@@ -1,0 +1,13 @@
+Testing Stack as an ADT
+Using postfixExpression: 3 4 + 2 * 7 /
+Result: 2
+Testing Queue as an ADT
+Enqueuing 1, 2, 3
+Front element: 1
+Queue size: 3
+Front element after dequeuing 1 element: 2
+Enqueuing 4
+Dequeued: 2
+Dequeued: 3
+Dequeued: 4
+Queue size after dequeuing all elements: 0
